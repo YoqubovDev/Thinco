@@ -21,41 +21,59 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+# Laravel 12 Loyihasi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Bu loyiha Laravel 12 asosida ishlab chiqilgan. Ushbu qo'llanma yordamida loyhani ishga tushurishingiz mumkin.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Boshlanish
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Loyihani klonlash
 
-## Laravel Sponsors
+git clone https://github.com/username/project.git
+cd project
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. PHP kutubxonalarni o‘rnatish
 
-### Premium Partners
+composer install
+3. .env faylini yaratish
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+cp .env.example .env
+4. APP kalitini generatsiya qilish
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+php artisan key:generate
 
-## Code of Conduct
+6. Ma’lumotlar bazasi sozlamalari
+.env fayl ichida quyidagi joylarni to‘ldiring:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. Migratsiyalarni ishga tushirish
 
-## License
+php artisan migrate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7. Frontendni sozlash (agar Breeze ishlatilgan bo‘lsa)
+   
+npm install
+npm run dev
+
+9. Serverni ishga tushirish
+
+php artisan serve
+Sayt ochiladi: http://localhost:8000
+
+Talablar
+PHP >= 8.2
+
+Composer
+
+Node.js & npm
+
+MySQL yoki boshqa ma'lumotlar bazasi
+

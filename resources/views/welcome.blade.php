@@ -16,6 +16,7 @@
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="assets/js/vendor/tailwindcss3.4.5.js"></script>
     <style>
         html, body {
             height: 100%;
@@ -51,20 +52,25 @@
     </div>
 
     <!-- Navbar -->
+    <!-- Header/Navbar for Thinko.uz -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-        <a href="index.html" class="navbar-brand">
-            <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Thinko.uz</h1>
+        <a href="/" class="navbar-brand">
+            <h1 class="m-0 text-primary">
+                <i class="fa fa-book-reader me-3"></i>Thinko.uz
+            </h1>
         </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto">
-                <a href="index.html" class="nav-item nav-link active">Asosiy sahifa</a>
+                <a href="/" class="nav-item nav-link active">Asosiy sahifa</a>
                 <a href="about.html" class="nav-item nav-link">Haqida</a>
                 <a href="https://t.me/Baxriddinovich_Dev" class="nav-item nav-link">Bog'lanish</a>
             </div>
-            <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Saytga qo'shilish<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="#" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">
+                Saytga qo'shilish <i class="fa fa-arrow-right ms-3"></i>
+            </a>
             @if (Route::has('login'))
                 <div class="d-flex align-items-center gap-2 ms-3">
                     @auth

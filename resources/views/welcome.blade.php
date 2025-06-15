@@ -6,237 +6,258 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="icon" href="{{ asset('img/favicon.ico') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <style>
-        body { font-family: 'Heebo', 'Inter', 'Lobster Two', sans-serif; }
-        .font-lobster { font-family: 'Lobster Two', cursive; }
-        .carousel-fade { transition: opacity 0.7s; }
+        html, body {
+            height: 100%;
+            background: #fff;
+        }
+        body {
+            font-family: 'Heebo', 'Inter', 'Lobster Two', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        .main-wrapper {
+            min-width: 100vw;
+            background: #fff;
+        }
+        /* To remove container max-width limitation on large screens */
+        .container-xxl, .container-fluid {
+            max-width: 100vw !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
     </style>
 </head>
-<body class="bg-white">
-<!-- Spinner -->
-<div id="spinner" class="fixed inset-0 flex items-center justify-center bg-white z-50">
-    <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-    <span class="sr-only">Yuklanmoqda...</span>
-</div>
+<body>
+<div class="main-wrapper">
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Yuklanmoqda...</span>
+        </div>
+    </div>
 
-<!-- Navbar -->
-<nav class="sticky top-0 w-full bg-white shadow z-30">
-    <div class="container mx-auto flex items-center justify-between px-6 py-3">
-        <a href="index.html" class="flex items-center gap-2">
-            <i class="fa fa-book-reader text-2xl text-blue-600"></i>
-            <span class="text-2xl text-blue-600 font-bold font-lobster">Thinko.uz</span>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+        <a href="index.html" class="navbar-brand">
+            <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Thinko.uz</h1>
         </a>
-        <div class="hidden lg:flex items-center gap-6">
-            <a href="index.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Asosiy sahifa</a>
-            <a href="about.html" class="text-gray-700 hover:text-blue-600 transition">Haqida</a>
-            <a href="https://t.me/Baxriddinovich_Dev" class="text-gray-700 hover:text-blue-600 transition">Bog'lanish</a>
-            <a href="#" class="ml-4 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition items-center hidden lg:inline-flex">
-                Saytga qo'shilish <i class="fa fa-arrow-right ml-2"></i>
-            </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav mx-auto">
+                <a href="index.html" class="nav-item nav-link active">Asosiy sahifa</a>
+                <a href="about.html" class="nav-item nav-link">Haqida</a>
+                <a href="https://t.me/Baxriddinovich_Dev" class="nav-item nav-link">Bog'lanish</a>
+            </div>
+            <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Saytga qo'shilish<i class="fa fa-arrow-right ms-3"></i></a>
             @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
+                <div class="d-flex align-items-center gap-2 ms-3">
                     @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
+                        <a href="{{ url('/dashboard') }}" class="btn btn-outline-dark">Dashboard</a>
                     @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
-
+                        <a href="{{ route('login') }}" class="btn btn-outline-dark">Log in</a>
                         @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a>
+                            <a href="{{ route('register') }}" class="btn btn-outline-dark">Register</a>
                         @endif
                     @endauth
-                </nav>
+                </div>
             @endif
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Carousel -->
-<div class="relative w-full h-[500px] overflow-hidden mb-12">
-    <div class="absolute inset-0 w-full h-full z-0">
-        <img src="img/carousel-1.jpg" id="carousel-img-1" class="w-full h-full object-cover absolute carousel-fade opacity-100" alt="">
-        <img src="img/carousel-2.jpg" id="carousel-img-2" class="w-full h-full object-cover absolute carousel-fade opacity-0" alt="">
-        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-    </div>
-    <div class="absolute inset-0 flex items-center z-10">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl">
-                <h1 id="carousel-title" class="text-5xl text-white font-bold mb-6 drop-shadow">
-                    Thinko.uz - biz doim siz bilanmiz !
-                </h1>
-                <p id="carousel-desc" class="text-xl text-white mb-6 font-medium drop-shadow">
-                    Farzandingiz telefonni foydali ishlatishini xohlaysizmi? Unda Thinko.uz siz uchun! Bu yerda bolalar topshiriq bajaradi, coinlar yig‘adi, badge oladi va o‘z orzulari sari qadam tashlaydi! Biz bilan bilim olish — sarguzasht!
-                </p>
-            </div>
-        </div>
-    </div>
-    <button class="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white bg-opacity-60 rounded-full shadow" onclick="showPrevSlide()"><i class="bi bi-chevron-left text-xl text-blue-600"></i></button>
-    <button class="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white bg-opacity-60 rounded-full shadow" onclick="showNextSlide()"><i class="bi bi-chevron-right text-xl text-blue-600"></i></button>
-</div>
-
-<!-- Facilities -->
-<section class="py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
-                <div class="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 mb-4">
-                    <i class="fas fa-brain text-3xl text-blue-600"></i>
+    <!-- Carousel -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid w-100" src="{{ asset('img/carousel-1.jpg') }}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h1 class="display-2 text-white animated slideInDown mb-4">Thinko.uz - biz doim siz bilanmiz !</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">
+                                    Farzandingiz telefonni foydali ishlatishini xohlaysizmi? Unda Thinko.uz siz uchun! Bu yerda bolalar topshiriq bajaradi, coinlar yig‘adi, badge oladi va o‘z orzulari sari qadam tashlaydi! Biz bilan bilim olish — sarguzasht!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-blue-600 text-xl font-semibold mb-2">Smart Topshiriqlar</h3>
-                <p class="text-gray-600">Har kuni yangilanuvchi aqliy, jismoniy va ijodiy topshiriqlar orqali bolangiz o‘z qiziqishlarini kashf etadi.</p>
             </div>
-            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
-                <div class="w-16 h-16 flex items-center justify-center rounded-full bg-green-100 mb-4">
-                    <i class="fa fa-futbol text-3xl text-green-600"></i>
-                </div>
-                <h3 class="text-green-600 text-xl font-semibold mb-2">Interaktiv O‘yinlar</h3>
-                <p class="text-gray-600">Topshiriqlar o‘yin elementlari bilan boyitilgan — farzandingiz o‘rganar ekan, charchamaydi, aksincha zavqlanadi!</p>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
-                <div class="w-16 h-16 flex items-center justify-center rounded-full bg-yellow-100 mb-4">
-                    <i class="fa fa-home text-3xl text-yellow-600"></i>
-                </div>
-                <h3 class="text-yellow-600 text-xl font-semibold mb-2">Motivatsion Mukofotlar</h3>
-                <p class="text-gray-600">Coin, badge va reyting orqali bolangiz muvaffaqiyat sari intiladi. Harakat — mukofot bilan taqdirlanadi!</p>
-            </div>
-            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
-                <div class="w-16 h-16 flex items-center justify-center rounded-full bg-cyan-100 mb-4">
-                    <i class="fa fa-chalkboard-teacher text-3xl text-cyan-600"></i>
-                </div>
-                <h3 class="text-cyan-600 text-xl font-semibold mb-2">Ota-onalar Nazorati</h3>
-                <p class="text-gray-600">Ota-onalar har bir topshiriqni, yutuqni va faoliyatni nazorat qila oladi. Bola o‘sadi, siz xotirjam bo‘lasiz.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About -->
-<section class="py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-            <div>
-                <h1 class="text-3xl font-bold text-gray-900 mb-6">Sayt yaratuvchisi</h1>
-                <p class="text-gray-700 mb-8">
-                    Men Baymatov Bobur Baxriddin o'g'li, dasturlash va texnologiya sohasida keng tajribaga ega bo'lgan mutaxassisman. Men turli xil loyihalarda ishlashni yaxshi ko'raman va har doim yangi texnologiyalarni o'rganishga intilaman. Bugungi kunda PHP, MySQL, C++, JavaScript, HTML va CSS kabi texnologiyalar bilan ishlayman ))
-                </p>
-                <div class="flex items-center gap-4">
-                    <img class="w-12 h-12 rounded-full" src="img/user.jpg" alt="">
-                    <div>
-                        <h6 class="text-blue-600 font-semibold">Bobur Baymatov</h6>
-                        <small class="text-gray-500">Web developer</small>
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid w-100" src="{{ asset('img/carousel-2.jpg') }}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h1 class="display-2 text-white animated slideInDown mb-4">Thinko.uz - biz doim siz bilanmiz !</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">
+                                    Thinko.uz — bu bolalar uchun yaratilgan innovatsion platforma bo‘lib, ularni bilim olish, sog‘lom hayot tarziga o‘rgatish va real hayotdagi faoliyatga jalb etishga xizmat qiladi. Har bir topshiriq – yangi imkoniyat. Har bir harakat – mukofot bilan rag‘batlantiriladi. Bu yerda bolalar o‘rganadi, harakat qiladi va rivojlanadi.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-gray-400 pt-12 pb-2 w-full">
-    <div class="container mx-auto px-4 pb-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div>
-                <h4 class="text-white text-lg mb-4">Aloqa</h4>
-                <p class="mb-2 flex items-center"><i class="fa fa-map-marker-alt mr-2"></i>Jizzax, O'zbekiston</p>
-                <p class="mb-2 flex items-center"><i class="fa fa-phone-alt mr-2"></i>+998 99 555 7106</p>
-                <p class="mb-2 flex items-center"><i class="fa fa-envelope mr-2"></i>boymatovbobur6@gmail.com</p>
-                <div class="flex space-x-3 pt-2">
-                    <a class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:bg-blue-500 hover:text-white transition" href="#"><i class="fab fa-telegram-plane"></i></a>
-                    <a class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:bg-gray-800 hover:text-white transition" href="#"><i class="fab fa-github"></i></a>
-                    <a class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:bg-blue-700 hover:text-white transition" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:bg-pink-600 hover:text-white transition" href="#"><i class="fab fa-instagram"></i></a>
+    <!-- Facilities -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="facility-item">
+                        <div class="facility-icon bg-primary">
+                            <span class="bg-primary"></span>
+                            <i class="fas fa-brain fa-3x text-primary"></i>
+                            <span class="bg-primary"></span>
+                        </div>
+                        <div class="facility-text bg-primary">
+                            <h3 class="text-primary mb-3">Smart Topshiriqlar</h3>
+                            <p class="mb-0">Har kuni yangilanuvchi aqliy, jismoniy va ijodiy topshiriqlar orqali bolangiz o‘z qiziqishlarini kashf etadi.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h4 class="text-white text-lg mb-4">Foydali Havolalar</h4>
-                <a class="block text-gray-400 hover:text-white transition mb-2" href="#">Men haqimda</a>
-                <a class="block text-gray-400 hover:text-white transition mb-2" href="#">Loyihalarim</a>
-                <a class="block text-gray-400 hover:text-white transition mb-2" href="#">Xizmatlar</a>
-                <a class="block text-gray-400 hover:text-white transition mb-2" href="#">Maxfiylik Siyosati</a>
-                <a class="block text-gray-400 hover:text-white transition" href="#">Foydalanish shartlari</a>
-            </div>
-            <div>
-                <h4 class="text-white text-lg mb-4">Men Haqimda</h4>
-                <p>
-                    Men web dasturchiman. PHP, MySQL, HTML, CSS va JavaScript bilan to‘liq funksional va zamonaviy web platformalar yaratishga ixtisoslashganman. Har bir loyiha – bu men uchun yangi tajriba va rivojlanish imkoniyati.
-                </p>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="facility-item">
+                        <div class="facility-icon bg-success">
+                            <span class="bg-success"></span>
+                            <i class="fa fa-futbol fa-3x text-success"></i>
+                            <span class="bg-success"></span>
+                        </div>
+                        <div class="facility-text bg-success">
+                            <h3 class="text-success mb-3">Interaktiv O‘yinlar</h3>
+                            <p class="mb-0">Topshiriqlar o‘yin elementlari bilan boyitilgan — farzandingiz o‘rganar ekan, charchamaydi, aksincha zavqlanadi!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="facility-item">
+                        <div class="facility-icon bg-warning">
+                            <span class="bg-warning"></span>
+                            <i class="fa fa-home fa-3x text-warning"></i>
+                            <span class="bg-warning"></span>
+                        </div>
+                        <div class="facility-text bg-warning">
+                            <h3 class="text-warning mb-3">Motivatsion Mukofotlar</h3>
+                            <p class="mb-0">Coin, badge va reyting orqali bolangiz muvaffaqiyat sari intiladi. Harakat — mukofot bilan taqdirlanadi!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="facility-item">
+                        <div class="facility-icon bg-info">
+                            <span class="bg-info"></span>
+                            <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                            <span class="bg-info"></span>
+                        </div>
+                        <div class="facility-text bg-info">
+                            <h3 class="text-info mb-3">Ota-onalar Nazorati</h3>
+                            <p class="mb-0">Ota-onalar har bir topshiriqni, yutuqni va faoliyatni nazorat qila oladi. Bola o‘sadi, siz xotirjam bo‘lasiz</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="bg-gray-800 text-center text-white py-3">
-        &copy; 2025 Sizning Baxriddinovich. Barcha huquqlar himoyalangan.
+
+    <!-- About -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-4">Sayt yaratuvchisi</h1>
+                    <p>
+                        Men Baymatov Bobur Baxriddin o'g'li, dasturlash va texnologiya sohasida keng tajribaga ega bo'lgan mutaxassisman. Men turli xil loyihalarda ishlashni yaxshi ko'raman va har doim yangi texnologiyalarni o'rganishga intilaman. Bugungi kunda PHP, MySQL, C++, JavaScript, HTML va CSS kabi texnologiyalar bilan ishlayman ))
+                    </p>
+                    <div class="row g-4 align-items-center">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle flex-shrink-0" src="{{ asset('img/user.jpg') }}" alt="" style="width: 45px; height: 45px;">
+                                <div class="ms-3">
+                                    <h6 class="text-primary mb-1">Bobur Baymatov</h6>
+                                    <small>Web developer</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- You can add an image or illustration here if you want -->
+            </div>
+        </div>
     </div>
-</footer>
 
-<!-- Back to top -->
-<a href="#" class="fixed bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition z-50 back-to-top hidden">
-    <i class="fas fa-arrow-up"></i>
-</a>
+    <!-- Footer -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-4">Aloqa</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Jizzax, O'zbekiston</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+998 99 555 7106</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>boymatovbobur6@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-github"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white mb-4">Foydali Havolalar</h4>
+                    <a class="btn btn-link text-white-50" href="#">Men haqimda</a>
+                    <a class="btn btn-link text-white-50" href="#">Loyihalarim</a>
+                    <a class="btn btn-link text-white-50" href="#">Xizmatlar</a>
+                    <a class="btn btn-link text-white-50" href="#">Maxfiylik Siyosati</a>
+                    <a class="btn btn-link text-white-50" href="#">Foydalanish shartlari</a>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h4 class="text-white mb-4">Men Haqimda</h4>
+                    <p class="mb-0">
+                        Men web dasturchiman. PHP, MySQL, HTML, CSS va JavaScript bilan to‘liq funksional va zamonaviy web platformalar yaratishga ixtisoslashganman. Har bir loyiha – bu men uchun yangi tajriba va rivojlanish imkoniyati.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-secondary text-white text-center py-4">
+            <p class="mb-0">&copy; 2025 Sizning Baxriddinovich. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </div>
 
+    <!-- Back to top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('lib/wow/wow.min.js') }}"></script>
+<script src="{{ asset('lib/easing/easing.min.js') }}"></script>
+<script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <script>
     // Spinner
     window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.getElementById('spinner').style.display = 'none';
         }, 600);
-    });
-    // Carousel logic
-    let currentCarousel = 1;
-    function showSlide(n) {
-        const imgs = [document.getElementById('carousel-img-1'), document.getElementById('carousel-img-2')];
-        const titles = [
-            "Thinko.uz - biz doim siz bilanmiz !",
-            "Thinko.uz - biz doim siz bilanmiz !"
-        ];
-        const descs = [
-            "Farzandingiz telefonni foydali ishlatishini xohlaysizmi? Unda Thinko.uz siz uchun! Bu yerda bolalar topshiriq bajaradi, coinlar yig‘adi, badge oladi va o‘z orzulari sari qadam tashlaydi! Biz bilan bilim olish — sarguzasht!",
-            "Thinko.uz — bu bolalar uchun yaratilgan innovatsion platforma bo‘lib, ularni bilim olish, sog‘lom hayot tarziga o‘rgatish va real hayotdagi faoliyatga jalb etishga xizmat qiladi. Har bir topshiriq – yangi imkoniyat. Har bir harakat – mukofot bilan rag‘batlantiriladi. Bu yerda bolalar o‘rganadi, harakat qiladi va rivojlanadi."
-        ];
-        for (let i = 0; i < imgs.length; i++) {
-            imgs[i].style.opacity = i + 1 === n ? "1" : "0";
-        }
-        document.getElementById('carousel-title').textContent = titles[n - 1];
-        document.getElementById('carousel-desc').textContent = descs[n - 1];
-        currentCarousel = n;
-    }
-    function showNextSlide() {
-        showSlide(currentCarousel === 1 ? 2 : 1);
-    }
-    function showPrevSlide() {
-        showSlide(currentCarousel === 1 ? 2 : 1);
-    }
-    setInterval(showNextSlide, 7000);
-
-    // Back to top
-    const backToTopBtn = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 300) {
-            backToTopBtn.classList.remove('hidden');
-        } else {
-            backToTopBtn.classList.add('hidden');
-        }
-    });
-    backToTopBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
 </body>

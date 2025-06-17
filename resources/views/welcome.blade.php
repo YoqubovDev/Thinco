@@ -126,46 +126,53 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-primary">
-                            <span class="bg-primary"></span>
-                            <i class="fas fa-brain fa-3x text-primary"></i>
-                            <span class="bg-primary"></span>
-                        </div>
-                        <div class="facility-text bg-primary">
-                            <h3 class="text-primary mb-3">Smart Topshiriqlar</h3>
-                            <p class="mb-0">Har kuni yangilanuvchi aqliy, jismoniy va ijodiy topshiriqlar orqali bolangiz o‘z qiziqishlarini kashf etadi.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-success">
-                            <span class="bg-success"></span>
-                            <i class="fa fa-futbol fa-3x text-success"></i>
-                            <span class="bg-success"></span>
-                        </div>
-                        <div class="facility-text bg-success">
-                            <h3 class="text-success mb-3">Interaktiv O‘yinlar</h3>
-                            <p class="mb-0">Topshiriqlar o‘yin elementlari bilan boyitilgan — farzandingiz o‘rganar ekan, charchamaydi, aksincha zavqlanadi!</p>
+                <a href="/SmartExam">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-primary">
+                                <span class="bg-primary"></span>
+                                <i class="fas fa-brain fa-3x text-primary"></i>
+                                <span class="bg-primary"></span>
+                            </div>
+                            <div class="facility-text bg-primary">
+                                <h3 class="text-primary mb-3">Smart Topshiriqlar</h3>
+                                <p class="mb-0">Har kuni yangilanuvchi aqliy, jismoniy va ijodiy topshiriqlar orqali bolangiz o‘z qiziqishlarini kashf etadi.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-warning">
-                            <span class="bg-warning"></span>
-                            <i class="fa fa-home fa-3x text-warning"></i>
-                            <span class="bg-warning"></span>
-                        </div>
-                        <div class="facility-text bg-warning">
-                            <h3 class="text-warning mb-3">Motivatsion Mukofotlar</h3>
-                            <p class="mb-0">Coin, badge va reyting orqali bolangiz muvaffaqiyat sari intiladi. Harakat — mukofot bilan taqdirlanadi!</p>
+                </a>
+                <a href="InteraktivGamePlay">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-success">
+                                <span class="bg-success"></span>
+                                <i class="fa fa-futbol fa-3x text-success"></i>
+                                <span class="bg-success"></span>
+                            </div>
+                            <div class="facility-text bg-success">
+                                <h3 class="text-success mb-3">Interaktiv O‘yinlar</h3>
+                                <p class="mb-0">Topshiriqlar o‘yin elementlari bilan boyitilgan — farzandingiz o‘rganar ekan, charchamaydi, aksincha zavqlanadi!</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                </a>
+                <a href="MotivatsionWin">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-warning">
+                                <span class="bg-warning"></span>
+                                <i class="fa fa-home fa-3x text-warning"></i>
+                                <span class="bg-warning"></span>
+                            </div>
+                            <div class="facility-text bg-warning">
+                                <h3 class="text-warning mb-3">Motivatsion Mukofotlar</h3>
+                                <p class="mb-0">Coin, badge va reyting orqali bolangiz muvaffaqiyat sari intiladi. Harakat — mukofot bilan taqdirlanadi!</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="ParentControl">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="facility-item">
                         <div class="facility-icon bg-info">
                             <span class="bg-info"></span>
@@ -178,6 +185,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>

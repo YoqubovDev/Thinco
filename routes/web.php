@@ -22,13 +22,13 @@ Route::middleware('auth')->group(function () {
 //Route::get('/dashboard', [UserController::class, 'index'])->middleware('auth');
 
 
-Route::get('/admin', function () {
-    return 'Xush kelibsiz, admin!';
-})->middleware('role:admin');
+Route::get('/admin_dashboard', fn () => view('admin_dashboard'));
 
 Route::get('/teacher', function () {
     return 'Salom, o‘qituvchi!';
 })->middleware('role:teacher');
 
+
+Route::get('/gameList', fn () => view('gameList'));
 
 require __DIR__.'/auth.php';

@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-//Route::get('/admin', [AdminController::class, 'index'])->middleware('role:admin');
+Route::get('/admin', [AdminController::class, 'index'])->middleware('role:admin');
 //Route::get('/dashboard', [UserController::class, 'index'])->middleware('auth');
 
 

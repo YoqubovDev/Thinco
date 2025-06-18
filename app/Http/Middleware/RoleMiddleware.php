@@ -11,13 +11,17 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, string $role)
     {
         if (!Auth::check()) {
-            // Login qilmagan foydalanuvchi
             return redirect()->route('login');
         }
 
-        if (!$request->user()->hasRole($role)) {
-            // Roli mos kelmasa, 403 yoki boshqa sahifaga yo'naltiradi
+        $user = Auth::user();
+
+        if (method_exists($user, 'hasRole') && !$user->hasRole($role)) {
             abort(403, 'Sizda ushbu sahifaga ruxsat yo‘q!');
+        }
+
+        if (!$user->roles()->where('name', $role)->exists()) {
+            abort(403, 'Sahifaga kirish uchun sizda huquq yo‘q.');
         }
 
         return $next($request);

@@ -126,8 +126,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row">
-                <a href="/SmartExam">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a href="/SmartExam" class="text-decoration-none">
                         <div class="facility-item">
                             <div class="facility-icon bg-primary">
                                 <span class="bg-primary"></span>
@@ -139,10 +139,10 @@
                                 <p class="mb-0">Har kuni yangilanuvchi aqliy, jismoniy va ijodiy topshiriqlar orqali bolangiz o‘z qiziqishlarini kashf etadi.</p>
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a href="InteraktivGamePlay">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <a href="/InteraktivGamePlay" class="text-decoration-none">
                         <div class="facility-item">
                             <div class="facility-icon bg-success">
                                 <span class="bg-success"></span>
@@ -154,10 +154,10 @@
                                 <p class="mb-0">Topshiriqlar o‘yin elementlari bilan boyitilgan — farzandingiz o‘rganar ekan, charchamaydi, aksincha zavqlanadi!</p>
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a href="MotivatsionWin">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <a href="/MotivatsionWin" class="text-decoration-none">
                         <div class="facility-item">
                             <div class="facility-icon bg-warning">
                                 <span class="bg-warning"></span>
@@ -169,26 +169,27 @@
                                 <p class="mb-0">Coin, badge va reyting orqali bolangiz muvaffaqiyat sari intiladi. Harakat — mukofot bilan taqdirlanadi!</p>
                             </div>
                         </div>
-                    </div>
-                </a>
-                <a href="ParentControl">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="facility-item">
-                        <div class="facility-icon bg-info">
-                            <span class="bg-info"></span>
-                            <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
-                            <span class="bg-info"></span>
-                        </div>
-                        <div class="facility-text bg-info">
-                            <h3 class="text-info mb-3">Ota-onalar Nazorati</h3>
-                            <p class="mb-0">Ota-onalar har bir topshiriqni, yutuqni va faoliyatni nazorat qila oladi. Bola o‘sadi, siz xotirjam bo‘lasiz</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-                </a>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <a href="/ParentControl" class="text-decoration-none">
+                        <div class="facility-item">
+                            <div class="facility-icon bg-info">
+                                <span class="bg-info"></span>
+                                <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                                <span class="bg-info"></span>
+                            </div>
+                            <div class="facility-text bg-info">
+                                <h3 class="text-info mb-3">Ota-onalar Nazorati</h3>
+                                <p class="mb-0">Ota-onalar har bir topshiriqni, yutuqni va faoliyatni nazorat qila oladi. Bola o‘sadi, siz xotirjam bo‘lasiz.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+
 
     <!-- About -->
     <div class="container-xxl py-5">

@@ -170,7 +170,7 @@
                 <div class="flex justify-center mb-4">
                     <span class="bg-blue-400 text-white px-3 py-1 rounded-full text-sm font-bold">3-6 yosh</span>
                 </div>
-                <button class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('animals')">
+                <button id="startGameBtn"  class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('animals')">
                     🔊 Ovozlarni Eshitish!
                 </button>
             </div>
@@ -426,6 +426,14 @@
         document.getElementById('gameModal').classList.remove('hidden');
         document.getElementById('gameModal').classList.add('flex');
     }
+
+    document.getElementById('startGameBtn').addEventListener('click', function() {
+        // Hozirgi oynada ochish
+        window.location.href = '/interactive-game-play/AnimalSounds';
+
+        // Agar yangi tabda ochmoqchi bo'lsangiz:
+        // window.open('animal-sounds.php', '_blank');
+    });
 
     function closeModal() {
         document.getElementById('gameModal').classList.add('hidden');

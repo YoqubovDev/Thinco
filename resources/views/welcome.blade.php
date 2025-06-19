@@ -142,7 +142,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <a href="/InteraktivGamePlay" class="text-decoration-none">
+                    <a href="/home/sanjarbek/project/Thinco/resources/views/InteractiveGamePlay" class="text-decoration-none">
                         <div class="facility-item">
                             <div class="facility-icon bg-success">
                                 <span class="bg-success"></span>

@@ -194,7 +194,7 @@
                     <span>Smart Topshiriqlar</span>
                 </div>
             </div>
-            <div class="nav-item p-3 cursor-pointer text-white" onclick="showSection('Games')">
+            <div class="nav-item p-3 cursor-pointer text-white" onclick="showSection('games')">
                 <div class="flex items-center">
                     <span class="mr-3">🎮</span>
                     <span>Interaktiv O'yinlar</span>
@@ -479,7 +479,7 @@
             </div>
         </div>
 
-        <!-- Games Section -->
+        <!-- games Section -->
         <div id="games" class="section hidden">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-bold text-white">Interaktiv O'yinlar</h2>

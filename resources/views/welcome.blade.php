@@ -65,20 +65,20 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto">
                 <a href="/" class="nav-item nav-link active">Asosiy sahifa</a>
-                <a href="about.html" class="nav-item nav-link">Haqida</a>
+                <a href="about" class="nav-item nav-link">Haqida</a>
                 <a href="https://t.me/Baxriddinovich_Dev" class="nav-item nav-link">Bog'lanish</a>
             </div>
-            <a href="#" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">
-                Saytga qo'shilish <i class="fa fa-arrow-right ms-3"></i>
+            <a href="feedback" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">
+                Feedback <i class="fa fa-arrow-right ms-3"></i>
             </a>
             @if (Route::has('login'))
                 <div class="d-flex align-items-center gap-2 ms-3">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="btn btn-outline-dark">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-outline-dark">Log in</a>
+                        <a href="{{ route('login') }}" class="btn btn-outline-dark">Kirish</a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-outline-dark">Register</a>
+                            <a href="{{ route('register') }}" class="btn btn-outline-dark">Ro'yxatdan o'tish</a>
                         @endif
                     @endauth
                 </div>

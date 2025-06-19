@@ -13,7 +13,9 @@ Route::get('/SmartExam', fn () => view('SmartExam'));
 Route::get('/InteractiveGamePlay', fn () => view('InteractiveGamePlay'));
 Route::get('/MotivationWin', fn () => view('MotivationWin'));
 Route::get('/ParentControl', fn () => view('ParentControl'));
-Route::get('/dashboard', fn () => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/about', fn () => view('about'));
+Route::get('/feedback', fn () => view('feedback'));
+//Route::get('/dashboard', fn () => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::prefix('interactive-game-play')->group(function () {
     Route::get('/AnimalSounds', [InteractiveGameController::class, 'AnimalSounds'])->name('AnimalSounds');

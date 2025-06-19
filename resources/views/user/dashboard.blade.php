@@ -323,7 +323,7 @@
             </div>
         </div>
 
-        <!-- Games Section -->
+        <!-- games Section -->
         <div id="games" class="section hidden">
             <h2 class="text-3xl font-bold text-white mb-6">O'yinlar</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

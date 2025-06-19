@@ -384,7 +384,7 @@
             </div>
         </div>
 
-        <!-- Games Section -->
+        <!-- games Section -->
         <div id="games" class="section hidden">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-bold text-white">Interaktiv O'yinlar</h2>

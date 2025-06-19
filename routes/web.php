@@ -12,7 +12,9 @@ Route::get('/SmartExam', fn () => view('SmartExam'));
 Route::get('/InteraktivGamePlay', fn () => view('InteraktivGamePlay'));
 Route::get('/MotivatsionWin', fn () => view('MotivatsionWin'));
 Route::get('/ParentControl', fn () => view('ParentControl'));
-Route::get('/dashboard', fn () => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/about', fn () => view('about'));
+Route::get('/feedback', fn () => view('feedback'));
+//Route::get('/dashboard', fn () => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('role:admin')->group(function () {
     Route::prefix('admin')->group(function () {

@@ -194,7 +194,7 @@
                     <span>Smart Topshiriqlar</span>
                 </div>
             </div>
-            <div class="nav-item p-3 cursor-pointer text-white" onclick="showSection('games')">
+            <div class="nav-item p-3 cursor-pointer text-white" onclick="showSection('Games')">
                 <div class="flex items-center">
                     <span class="mr-3">🎮</span>
                     <span>Interaktiv O'yinlar</span>

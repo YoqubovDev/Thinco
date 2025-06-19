@@ -102,21 +102,6 @@
                 </div>
             </div>
 
-            <!-- Pattern Recognition -->
-            <div class="smart-card rounded-2xl p-6 border border-gray-200">
-                <div class="text-center">
-                    <div class="text-5xl mb-4">🎨</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Naqsh Tanish</h3>
-                    <p class="text-gray-600 mb-4">Vizual naqshlarni tanish va davom ettirish</p>
-                    <div class="flex justify-center mb-4">
-                        <span class="difficulty-medium text-white px-3 py-1 rounded-full text-sm font-medium">O'rta</span>
-                    </div>
-                    <button class="smart-btn w-full py-3 px-6 text-white font-semibold rounded-lg" onclick="startCategory('pattern')">
-                        Boshlash
-                    </button>
-                </div>
-            </div>
-
             <!-- Memory Games -->
             <div class="smart-card rounded-2xl p-6 border border-gray-200">
                 <div class="text-center">
@@ -127,6 +112,20 @@
                         <span class="difficulty-easy text-white px-3 py-1 rounded-full text-sm font-medium">Oson</span>
                     </div>
                     <button class="smart-btn w-full py-3 px-6 text-white font-semibold rounded-lg" onclick="startCategory('memory')">
+                        Boshlash
+                    </button>
+                </div>
+            </div>
+            <!-- Pattern Recognition -->
+            <div class="smart-card rounded-2xl p-6 border border-gray-200">
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🎨</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Naqsh Tanish</h3>
+                    <p class="text-gray-600 mb-4">Vizual naqshlarni tanish va davom ettirish</p>
+                    <div class="flex justify-center mb-4">
+                        <span class="difficulty-medium text-white px-3 py-1 rounded-full text-sm font-medium">O'rta</span>
+                    </div>
+                    <button class="smart-btn w-full py-3 px-6 text-white font-semibold rounded-lg" onclick="startCategory('pattern')">
                         Boshlash
                     </button>
                 </div>
@@ -166,7 +165,7 @@
 
     <!-- Popular Smart Tasks -->
     <div class="mb-12">
-        <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Mashhur Smart Topshiriqlar</h2>
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Mashhur Smart Topshiriqlar .... (Inprogress)</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
@@ -375,10 +374,10 @@
         const title = currentCategory ? categoryData[currentCategory].title : gameData[currentGame].title;
         showNotification(`${title} yuklanmoqda...`, 'info');
 
-        setTimeout(() => {
-            showNotification(`${title} muvaffaqiyatli boshlandi! Omad tilaymiz!`, 'success');
-            updateStats();
-        }, 1500);
+        // setTimeout(() => {
+        //     showNotification(`${title} Tez orada  boshlandi! Omad tilaymiz!`, 'success');
+        //     updateStats();
+        // }, 1500);
     }
 
     function updateStats() {

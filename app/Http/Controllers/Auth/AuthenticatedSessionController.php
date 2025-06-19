@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
         $user = Auth::user();
 
         $role = $user->roles()->first();
-        
+
         if ($role) {
             switch ($role->name) {
                 case 'admin':

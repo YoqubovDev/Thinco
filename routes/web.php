@@ -3,6 +3,7 @@
 use App\Http\Controllers\InteractiveGameController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SmartExamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
@@ -19,6 +20,8 @@ Route::get('/feedback', fn () => view('feedback'));
 
 Route::prefix('interactive-game-play')->group(function () {
     Route::get('/AnimalSounds', [InteractiveGameController::class, 'AnimalSounds'])->name('AnimalSounds');
+    Route::get('/MemoryGame', [InteractiveGameController::class, 'MemoryGame'])->name('MemoryGame');
+    Route::get('/Alphabet', [InteractiveGameController::class, 'Alphabet'])->name('Alphabet');
 });
 
 Route::middleware('role:admin')->group(function () {

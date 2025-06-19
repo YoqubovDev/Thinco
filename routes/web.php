@@ -16,12 +16,12 @@ Route::get('/MotivationWin', fn () => view('MotivationWin'));
 Route::get('/ParentControl', fn () => view('ParentControl'));
 Route::get('/about', fn () => view('about'));
 Route::get('/feedback', fn () => view('feedback'));
-//Route::get('/dashboard', fn () => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::prefix('interactive-game-play')->group(function () {
     Route::get('/AnimalSounds', [InteractiveGameController::class, 'AnimalSounds'])->name('AnimalSounds');
     Route::get('/MemoryGame', [InteractiveGameController::class, 'MemoryGame'])->name('MemoryGame');
     Route::get('/Alphabet', [InteractiveGameController::class, 'Alphabet'])->name('Alphabet');
+    Route::get('/colors', [InteractiveGameController::class, 'colors'])->name('colors');
 });
 
 Route::middleware('role:admin')->group(function () {

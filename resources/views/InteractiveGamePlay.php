@@ -149,16 +149,16 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Drawing Game -->
-            <div class="game-card p-6 text-center" data-age="3-5">
-                <div class="text-6xl mb-4 bounce">🎨</div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-3">Rasm Chizish</h3>
-                <p class="text-gray-600 mb-4">Rangbarang bo'yoqlar bilan chiroyli rasmlar chizing!</p>
+            <!-- Alphabet Game -->
+            <div class="game-card p-6 text-center" data-age="6-8">
+                <div class="text-6xl mb-4 bounce">📚</div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">Alifbo O'yini</h3>
+                <p class="text-gray-600 mb-4">Harflarni o'rganing va so'zlar tuzing!</p>
                 <div class="flex justify-center mb-4">
-                    <span class="bg-green-400 text-white px-3 py-1 rounded-full text-sm font-bold">3-8 yosh</span>
+                    <span class="bg-red-400 text-white px-3 py-1 rounded-full text-sm font-bold">4-8 yosh</span>
                 </div>
-                <button class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('drawing')">
-                    🖌️ Chizishni Boshlash!
+                <button id="alphabet" class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('alphabet')">
+                    🔤 Harflarni O'rganish!
                 </button>
             </div>
 
@@ -183,23 +183,24 @@
                 <div class="flex justify-center mb-4">
                     <span class="bg-purple-400 text-white px-3 py-1 rounded-full text-sm font-bold">5-10 yosh</span>
                 </div>
-                <button class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('memory')">
+                <button id="MemoryGameBtn" class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('memory')">
                     🃏 Xotirani Sinash!
                 </button>
             </div>
 
-            <!-- Alphabet Game -->
-            <div class="game-card p-6 text-center" data-age="6-8">
-                <div class="text-6xl mb-4 bounce">📚</div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-3">Alifbo O'yini</h3>
-                <p class="text-gray-600 mb-4">Harflarni o'rganing va so'zlar tuzing!</p>
+            <!-- Drawing Game -->
+            <div class="game-card p-6 text-center" data-age="3-5">
+                <div class="text-6xl mb-4 bounce">🎨</div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">Rasm Chizish</h3>
+                <p class="text-gray-600 mb-4">Rangbarang bo'yoqlar bilan chiroyli rasmlar chizing!</p>
                 <div class="flex justify-center mb-4">
-                    <span class="bg-red-400 text-white px-3 py-1 rounded-full text-sm font-bold">4-8 yosh</span>
+                    <span class="bg-green-400 text-white px-3 py-1 rounded-full text-sm font-bold">3-8 yosh</span>
                 </div>
-                <button class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('alphabet')">
-                    🔤 Harflarni O'rganish!
+                <button class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('drawing')">
+                    🖌️ Chizishni Boshlash!
                 </button>
             </div>
+
 
             <!-- Math Game -->
             <div class="game-card p-6 text-center" data-age="6-8">
@@ -428,11 +429,20 @@
     }
 
     document.getElementById('startGameBtn').addEventListener('click', function() {
-        // Hozirgi oynada ochish
+
         window.location.href = '/interactive-game-play/AnimalSounds';
 
-        // Agar yangi tabda ochmoqchi bo'lsangiz:
-        // window.open('animal-sounds.php', '_blank');
+    });
+    document.getElementById('MemoryGameBtn').addEventListener('click', function() {
+
+        window.location.href = '/interactive-game-play/MemoryGame';
+
+    });
+
+    document.getElementById('alphabet').addEventListener('click', function() {
+
+        window.location.href = '/interactive-game-play/Alphabet';
+
     });
 
     function closeModal() {

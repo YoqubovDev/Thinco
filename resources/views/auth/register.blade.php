@@ -38,6 +38,23 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
+        <div class="mt-4 flex items-center">
+            <!-- Default value: off -->
+            <input type="hidden" name="parent" value="off" />
+
+            <!-- Checkbox: if checked, overwrites with on -->
+            <input
+                id="parent"
+                name="parent"
+                type="checkbox"
+                value="on"
+                class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+            />
+            <label for="parent" class="ml-2 block text-sm text-gray-900">
+                You are a parent?
+            </label>
+        </div>
+
 
         <div class="flex items-center justify-end gap-4 mt-4">
             @if (Route::has('login'))

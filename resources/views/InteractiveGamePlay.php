@@ -196,7 +196,7 @@
                 <div class="flex justify-center mb-4">
                     <span class="bg-green-400 text-white px-3 py-1 rounded-full text-sm font-bold">3-8 yosh</span>
                 </div>
-                <button class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('drawing')">
+                <button id="colors" class="rainbow-btn w-full py-3 px-6 text-white font-bold rounded-full text-lg" onclick="startGame('drawing')">
                     🖌️ Chizishni Boshlash!
                 </button>
             </div>
@@ -442,6 +442,12 @@
     document.getElementById('alphabet').addEventListener('click', function() {
 
         window.location.href = '/interactive-game-play/Alphabet';
+
+    });
+
+    document.getElementById('colors').addEventListener('click', function() {
+
+        window.location.href = '/interactive-game-play/colors';
 
     });
 

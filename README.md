@@ -65,3 +65,65 @@ Node.js & npm
 
 MySQL yoki boshqa ma'lumotlar bazasi
 
+
+## Docker-based Development / Docker-ga asoslangan ishlab chiqish
+
+### Prerequisites / Talablar
+- Docker
+- Docker Compose
+
+### Setup / O'rnatish
+1. Build and start containers / Konteynerlarni yaratish va ishga tushirish:
+    ```
+    docker compose up -d --build
+    ```
+
+2. The application will be available at / Ilova quyidagi manzilda ishlaydi:
+    - Main application / Asosiy ilova: http://localhost:9000
+    - Development server / Ishlab chiqish serveri: http://localhost:5173
+
+## Working with Artisan / Artisan bilan ishlash
+
+All Artisan commands should be executed through the Docker container / Barcha Artisan buyruqlari Docker konteyner orqali bajarilishi kerak:
+
+```bash
+docker exec thinko_app php artisan <command>
+```
+
+Common examples / Umumiy misollar:
+
+```bash
+# Run migrations / Migratsiyalarni ishga tushirish
+docker exec thinko_app php artisan migrate
+
+# Fresh migrations with seeding / Migratsiyalarni qayta ishga tushirish va ma'lumotlarni to'ldirish
+docker exec thinko_app php artisan migrate:fresh --seed
+
+# Start queue worker / Navbat ishchisini ishga tushirish
+docker exec thinko_app php artisan queue:work
+```
+
+## Troubleshooting / Muammolarni hal qilish
+
+If you encounter any issues / Agar muammolarga duch kelsangiz:
+
+1. Check container status / Konteyner holatini tekshiring:
+    ```bash
+    docker ps
+    ```
+
+2. Verify environment variables / Muhit o'zgaruvchilarini tekshiring:
+    - Check .env file matches docker-compose.yml
+    - Ensure DB_HOST=thinko_db
+
+3. View container logs / Konteyner loglarini ko'ring:
+    ```bash
+    docker logs thinko_app
+    docker logs thinko_db
+    ```
+
+4. Restart containers if needed / Zarur bo'lsa, konteynerlarni qayta ishga tushiring:
+    ```bash
+    docker compose down
+    docker compose up -d
+    ```

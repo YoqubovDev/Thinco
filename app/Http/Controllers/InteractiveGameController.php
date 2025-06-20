@@ -18,4 +18,9 @@ class InteractiveGameController extends Controller
     {
         return view('games.interactive.alphabet');
     }
+
+    public function colors()
+    {
+        return view('games.interactive.colors');
+    }
 }

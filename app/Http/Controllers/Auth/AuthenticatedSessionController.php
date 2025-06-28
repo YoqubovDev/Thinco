@@ -30,6 +30,11 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user();
 
+
+        $token = $user->createToken('web-token')->plainTextToken;
+
+        session(['api_token' => $token]);
+
         $role = $user->roles()->first();
 
         if ($role) {

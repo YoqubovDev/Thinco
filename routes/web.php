@@ -3,10 +3,10 @@
 use App\Http\Controllers\InteractiveGameController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SmartExamController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\web\admin\GameController;
+use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', fn () => view('welcome'));
@@ -16,6 +16,9 @@ Route::get('/MotivationWin', fn () => view('MotivationWin'));
 Route::get('/ParentControl', fn () => view('ParentControl'));
 Route::get('/about', fn () => view('about'));
 Route::get('/feedback', fn () => view('feedback'));
+Route::get('/contact', fn () => view('test1'));
+Route::get('/contact1', fn () => view('test2'));
+
 
 Route::prefix('interactive-game-play')->group(function () {
     Route::get('/AnimalSounds', [InteractiveGameController::class, 'AnimalSounds'])->name('AnimalSounds');
@@ -27,6 +30,7 @@ Route::prefix('interactive-game-play')->group(function () {
 Route::middleware(['auth' ,'role:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
        Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+       Route::get('/add-game', [GameController::class, 'index'])->name('game.index');
     });
 });
 

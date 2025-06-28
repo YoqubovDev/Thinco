@@ -302,9 +302,9 @@
                 <h2 class="text-3xl font-bold text-white">Smart Topshiriqlar</h2>
 
                 <div class="flex space-x-4">
-                    <button class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="addTask()">
+                    <a href="{{ route('game.index') }}" class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="addTask()">
                         <i class="fas fa-plus mr-2"></i>Yangi Topshiriq
-                    </button>
+                    </a>
 
                     <a href="/gameList"
                        class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors flex items-center">
@@ -388,9 +388,9 @@
         <div id="games" class="section hidden">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-3xl font-bold text-white">Interaktiv O'yinlar</h2>
-                <button class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="addGame()">
+                <a href="{{ route('game.index') }}"  class="bg-white text-purple-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="addGame()">
                     <i class="fas fa-plus mr-2"></i>Yangi O'yin
-                </button>
+                </a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

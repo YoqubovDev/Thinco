@@ -442,11 +442,5 @@
         event.target.closest('.nav-item').classList.add('active');
     }
 </script>
-@if(session('api_token'))
-    <script>
-        window.apiToken = "{{ session('api_token') }}";
-        console.log(window.apiToken);
-    </script>
-@endif
 </body>
 </html>

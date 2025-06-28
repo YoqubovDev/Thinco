@@ -3,10 +3,10 @@
 use App\Http\Controllers\InteractiveGameController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SmartExamController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\web\admin\GameController;
+use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', fn () => view('welcome'));
@@ -16,6 +16,9 @@ Route::get('/MotivationWin', fn () => view('MotivationWin'));
 Route::get('/ParentControl', fn () => view('ParentControl'));
 Route::get('/about', fn () => view('about'));
 Route::get('/feedback', fn () => view('feedback'));
+Route::get('/contact', fn () => view('test1'));
+Route::get('/contact1', fn () => view('test2'));
+
 
 Route::prefix('interactive-game-play')->group(function () {
     Route::get('/AnimalSounds', [InteractiveGameController::class, 'AnimalSounds'])->name('AnimalSounds');
@@ -24,22 +27,27 @@ Route::prefix('interactive-game-play')->group(function () {
     Route::get('/colors', [InteractiveGameController::class, 'colors'])->name('colors');
 });
 
-Route::middleware('role:admin')->group(function () {
+Route::middleware(['auth' ,'role:admin'])->group(function () {
     Route::prefix('admin')->group(function () {
-       Route::get('/', [AdminController::class, 'index'])->middleware('role:admin')->name('admin.dashboard');
+       Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+       Route::get('/add-game', [GameController::class, 'index'])->name('game.index');
     });
 });
 
-Route::middleware('role:parent')->group(function () {
+Route::middleware(['auth', 'role:parent'])->group(function () {
     Route::prefix('parent')->group(function () {
-      Route::get('/', [ParentController::class, 'index'])->middleware('role:parent')->name('parent.dashboard');
+      Route::get('/', [ParentController::class, 'index'])->name('parent.dashboard');
     });
 });
 
-Route::middleware('role:user')->group(function () {
+Route::middleware(['auth', 'role:user'])->group(function () {
     Route::prefix('user')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->middleware('role:user')->name('user.dashboard');
+        Route::get('/', [UserController::class, 'index'])->name('user.dashboard');
     });
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/check', [UserController::class, 'check'])->name('user.check');
 });
 
 

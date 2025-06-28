@@ -54,6 +54,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         Auth::login($user);
 
+        $token = $user->createToken('web-token')->plainTextToken;
+        session(['api_token' => $token]);
+
         $role = $user->roles()->first();
 
         if ($role) {

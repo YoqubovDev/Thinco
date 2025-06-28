@@ -3,22 +3,16 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RoleMiddleware
 {
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (Auth::check()) {
-            $user = Auth::user();
-
-            if ($user->role === 'admin') {
-                return redirect()->route('admin.dashboard');
-            } elseif ($user->role === 'parent') {
-                return redirect()->route('parent.index');
-            } elseif ($user->role === 'user') {
-                return redirect()->route('user.index');
-            }
+        $user = Auth::user();
+        if (!$user || !$user->roles()->whereIn('name', $roles)->exists()) {
+            abort(403, 'You do not have permission to access this page.');
         }
 
         return $next($request);

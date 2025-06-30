@@ -245,7 +245,7 @@
 
                     <div id="categorySelection" class="hidden">
                         <h3 class="text-xl font-bold mb-4">Kategoriyani Tanlang</h3>
-                        <div id="smartTaskCategories" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div id="smartTaskCategories" class="hidden grid-cols-1 md:grid-cols-3 gap-4">
                             <div class="category-card" onclick="selectCategory('math')">
                                 <div class="text-3xl mb-2">🔢</div>
                                 <h4 class="font-semibold">Matematik</h4>
@@ -900,16 +900,25 @@
     function publishGame() {
         if (validateCurrentStep()) {
             collectGameData();
-
-            // Simulate API call
             showNotification('O\'yin nashr qilinmoqda...', 'info');
-
-            setTimeout(() => {
-                showNotification('O\'yin muvaffaqiyatli nashr qilindi!', 'success');
-                setTimeout(() => {
-                    window.location.href = 'admin.html';
-                }, 2000);
-            }, 2000);
+            fetch('http://localhost:9000/api/games', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + window.apiToken,
+                },
+                body: JSON.stringify(gameData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showNotification('O\'yin muvaffaqiyatli nashr qilindi!', 'success');
+                    setTimeout(() => {
+                        window.location.href = '/admin';
+                    }, 2000);
+                })
+                .catch(error => {
+                    showNotification('Xatolik yuz berdi: ' + error.message, 'error');
+                });
         }
     }
 

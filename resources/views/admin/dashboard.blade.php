@@ -84,7 +84,7 @@
     <!-- Sidebar -->
     <div class="w-64 bg-white/10 backdrop-blur-lg p-6">
         <div class="text-center mb-8">
-            <a href="index.html" class="block">
+            <a href="/" class="block">
                 <h1 class="text-2xl font-bold text-white mb-2">Thinko.uz</h1>
             </a>
             <p class="text-white/80 text-sm">Admin Panel</p>

@@ -8,184 +8,37 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .admin-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .admin-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .form-section {
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-section:hover {
-            border-color: #667eea;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
-        }
-
-        .form-section.active {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.05);
-        }
-
-        .category-card {
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .category-card:hover {
-            border-color: #667eea;
-            transform: translateY(-2px);
-        }
-
-        .category-card.selected {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        .difficulty-badge {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .difficulty-easy { background: #10b981; color: white; }
-        .difficulty-medium { background: #f59e0b; color: white; }
-        .difficulty-hard { background: #ef4444; color: white; }
-
-        .preview-card {
-            border: 2px dashed #d1d5db;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            background: #f9fafb;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .step-indicator {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .step {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 1rem;
-            position: relative;
-        }
-
-        .step.active {
-            background: #667eea;
-            color: white;
-        }
-
-        .step.completed {
-            background: #10b981;
-            color: white;
-        }
-
-        .step.inactive {
-            background: #e5e7eb;
-            color: #6b7280;
-        }
-
-        .step::after {
-            content: '';
-            position: absolute;
-            right: -20px;
-            width: 20px;
-            height: 2px;
-            background: #e5e7eb;
-        }
-
-        .step.completed::after {
-            background: #10b981;
-        }
-
-        .step:last-child::after {
-            display: none;
-        }
-
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: #667eea;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .admin-card { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); transition: all 0.3s ease;}
+        .admin-card:hover { transform: translateY(-2px); box-shadow:0 12px 40px rgba(0,0,0,0.15);}
+        .form-section { border:2px solid #e5e7eb; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; transition:all 0.3s ease;}
+        .form-section:hover { border-color:#667eea; box-shadow:0 4px 12px rgba(102,126,234,0.1);}
+        .form-section.active { border-color:#667eea; background:rgba(102,126,234,0.05);}
+        .category-card { border:2px solid #e5e7eb; border-radius:12px; padding:1rem; cursor:pointer; transition:all 0.3s ease; text-align:center;}
+        .category-card:hover { border-color:#667eea; transform:translateY(-2px);}
+        .category-card.selected { border-color: #667eea; background:rgba(102,126,234,0.1);}
+        .difficulty-badge { padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.3s ease;}
+        .difficulty-easy { background:#10b981; color:white; }
+        .difficulty-medium { background:#f59e0b; color:white; }
+        .difficulty-hard { background:#ef4444; color:white; }
+        .preview-card { border:2px dashed #d1d5db; border-radius:12px; padding:2rem; text-align:center; background:#f9fafb; min-height:200px; display:flex; align-items:center; justify-content:center;}
+        .step-indicator { display:flex; align-items:center; margin-bottom:2rem;}
+        .step { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; margin-right:1rem; position:relative;}
+        .step.active { background:#667eea; color:white;}
+        .step.completed { background:#10b981; color:white;}
+        .step.inactive { background:#e5e7eb; color:#6b7280;}
+        .step::after { content:''; position:absolute; right:-20px; width:20px; height:2px; background:#e5e7eb;}
+        .step.completed::after { background:#10b981;}
+        .step:last-child::after { display:none;}
+        .toggle-switch { position:relative; display:inline-block; width:60px; height:34px;}
+        .toggle-switch input { opacity:0; width:0; height:0;}
+        .slider { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:#ccc; transition:.4s; border-radius:34px;}
+        .slider:before { position:absolute; content:""; height:26px; width:26px; left:4px; bottom:4px; background-color:white; transition:.4s; border-radius:50%;}
+        input:checked + .slider { background-color:#667eea;}
+        input:checked + .slider:before { transform:translateX(26px);}
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600">
-
 <div class="min-h-screen p-6">
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
@@ -207,7 +60,6 @@
             </button>
         </div>
     </div>
-
     <!-- Step Indicator -->
     <div class="admin-card p-6 mb-6">
         <div class="step-indicator">
@@ -221,7 +73,6 @@
             <span id="stepText">1-qadam: O'yin turini tanlang</span>
         </div>
     </div>
-
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Main Form -->
         <div class="lg:col-span-2">
@@ -229,7 +80,6 @@
             <div id="gameTypeStep" class="step-content">
                 <div class="admin-card p-6 mb-6">
                     <h2 class="text-2xl font-bold mb-6 text-gray-800">O'yin Turini Tanlang</h2>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div class="category-card" onclick="selectGameType('smart-task')">
                             <div class="text-4xl mb-3">🧠</div>
@@ -242,70 +92,31 @@
                             <p class="text-sm text-gray-600 mt-2">Ijodiy va ko'ngilochar o'yinlar</p>
                         </div>
                     </div>
-
                     <div id="categorySelection" class="hidden">
                         <h3 class="text-xl font-bold mb-4">Kategoriyani Tanlang</h3>
                         <div id="smartTaskCategories" class="hidden grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="category-card" onclick="selectCategory('math')">
-                                <div class="text-3xl mb-2">🔢</div>
-                                <h4 class="font-semibold">Matematik</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('logic')">
-                                <div class="text-3xl mb-2">🧩</div>
-                                <h4 class="font-semibold">Mantiq</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('memory')">
-                                <div class="text-3xl mb-2">🧠</div>
-                                <h4 class="font-semibold">Xotira</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('language')">
-                                <div class="text-3xl mb-2">📚</div>
-                                <h4 class="font-semibold">Til</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('science')">
-                                <div class="text-3xl mb-2">🔬</div>
-                                <h4 class="font-semibold">Fan</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('geography')">
-                                <div class="text-3xl mb-2">🌍</div>
-                                <h4 class="font-semibold">Geografiya</h4>
-                            </div>
+                            <div class="category-card" onclick="selectCategory('math')"><div class="text-3xl mb-2">🔢</div><h4 class="font-semibold">Matematik</h4></div>
+                            <div class="category-card" onclick="selectCategory('logic')"><div class="text-3xl mb-2">🧩</div><h4 class="font-semibold">Mantiq</h4></div>
+                            <div class="category-card" onclick="selectCategory('memory')"><div class="text-3xl mb-2">🧠</div><h4 class="font-semibold">Xotira</h4></div>
+                            <div class="category-card" onclick="selectCategory('language')"><div class="text-3xl mb-2">📚</div><h4 class="font-semibold">Til</h4></div>
+                            <div class="category-card" onclick="selectCategory('science')"><div class="text-3xl mb-2">🔬</div><h4 class="font-semibold">Fan</h4></div>
+                            <div class="category-card" onclick="selectCategory('geography')"><div class="text-3xl mb-2">🌍</div><h4 class="font-semibold">Geografiya</h4></div>
                         </div>
                         <div id="interactiveGameCategories" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="category-card" onclick="selectCategory('drawing')">
-                                <div class="text-3xl mb-2">🎨</div>
-                                <h4 class="font-semibold">Rasm Chizish</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('music')">
-                                <div class="text-3xl mb-2">🎵</div>
-                                <h4 class="font-semibold">Musiqa</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('puzzle')">
-                                <div class="text-3xl mb-2">🧩</div>
-                                <h4 class="font-semibold">Puzzle</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('adventure')">
-                                <div class="text-3xl mb-2">🗺️</div>
-                                <h4 class="font-semibold">Sarguzasht</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('simulation')">
-                                <div class="text-3xl mb-2">🏗️</div>
-                                <h4 class="font-semibold">Simulyatsiya</h4>
-                            </div>
-                            <div class="category-card" onclick="selectCategory('strategy')">
-                                <div class="text-3xl mb-2">♟️</div>
-                                <h4 class="font-semibold">Strategiya</h4>
-                            </div>
+                            <div class="category-card" onclick="selectCategory('drawing')"><div class="text-3xl mb-2">🎨</div><h4 class="font-semibold">Rasm Chizish</h4></div>
+                            <div class="category-card" onclick="selectCategory('music')"><div class="text-3xl mb-2">🎵</div><h4 class="font-semibold">Musiqa</h4></div>
+                            <div class="category-card" onclick="selectCategory('puzzle')"><div class="text-3xl mb-2">🧩</div><h4 class="font-semibold">Puzzle</h4></div>
+                            <div class="category-card" onclick="selectCategory('adventure')"><div class="text-3xl mb-2">🗺️</div><h4 class="font-semibold">Sarguzasht</h4></div>
+                            <div class="category-card" onclick="selectCategory('simulation')"><div class="text-3xl mb-2">🏗️</div><h4 class="font-semibold">Simulyatsiya</h4></div>
+                            <div class="category-card" onclick="selectCategory('strategy')"><div class="text-3xl mb-2">♟️</div><h4 class="font-semibold">Strategiya</h4></div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- Step 2: Basic Information -->
             <div id="basicInfoStep" class="step-content hidden">
                 <div class="admin-card p-6 mb-6">
                     <h2 class="text-2xl font-bold mb-6 text-gray-800">Asosiy Ma'lumotlar</h2>
-
                     <div class="form-section">
                         <h3 class="text-lg font-semibold mb-4">O'yin Nomi va Tavsifi</h3>
                         <div class="space-y-4">
@@ -323,7 +134,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-section">
                         <h3 class="text-lg font-semibold mb-4">Yosh Guruhi va Qiyinlik</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -379,12 +189,10 @@
                     </div>
                 </div>
             </div>
-
             <!-- Step 3: Game Content -->
             <div id="gameContentStep" class="step-content hidden">
                 <div class="admin-card p-6 mb-6">
                     <h2 class="text-2xl font-bold mb-6 text-gray-800">O'yin Mazmuni</h2>
-
                     <div class="form-section">
                         <h3 class="text-lg font-semibold mb-4">Vizual Elementlar</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -406,7 +214,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-section">
                         <h3 class="text-lg font-semibold mb-4">O'yin Qoidalari va Ko'rsatmalar</h3>
                         <div class="space-y-4">
@@ -420,7 +227,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-section" id="smartTaskContent" style="display: none;">
                         <h3 class="text-lg font-semibold mb-4">Smart Topshiriq Mazmuni</h3>
                         <div class="space-y-4">
@@ -440,12 +246,10 @@
                     </div>
                 </div>
             </div>
-
             <!-- Step 4: Rewards and Settings -->
             <div id="rewardsStep" class="step-content hidden">
                 <div class="admin-card p-6 mb-6">
                     <h2 class="text-2xl font-bold mb-6 text-gray-800">Mukofotlar va Sozlamalar</h2>
-
                     <div class="form-section">
                         <h3 class="text-lg font-semibold mb-4">Mukofot Tizimi</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -474,7 +278,6 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="form-section">
                         <h3 class="text-lg font-semibold mb-4">O'yin Sozlamalari</h3>
                         <div class="space-y-4">
@@ -522,19 +325,14 @@
                     </div>
                 </div>
             </div>
-
             <!-- Step 5: Review and Publish -->
             <div id="reviewStep" class="step-content hidden">
                 <div class="admin-card p-6 mb-6">
                     <h2 class="text-2xl font-bold mb-6 text-gray-800">Ko'rib Chiqish va Nashr Qilish</h2>
-
                     <div class="form-section">
                         <h3 class="text-lg font-semibold mb-4">O'yin Xulasasi</h3>
-                        <div id="gameSummary" class="space-y-3">
-                            <!-- Summary will be populated by JavaScript -->
-                        </div>
+                        <div id="gameSummary" class="space-y-3"></div>
                     </div>
-
                     <div class="form-section">
                         <h3 class="text-lg font-semibold mb-4">Nashr Sozlamalari</h3>
                         <div class="space-y-4">
@@ -562,7 +360,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Navigation Buttons -->
             <div class="flex justify-between">
                 <button id="prevBtn" onclick="previousStep()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors hidden">
@@ -578,7 +375,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Preview Panel -->
         <div class="lg:col-span-1">
             <div class="admin-card p-6 sticky top-6">
@@ -590,7 +386,6 @@
                         <p class="text-sm">Ko'rib chiqish bu yerda ko'rinadi</p>
                     </div>
                 </div>
-
                 <div class="mt-6">
                     <h4 class="font-semibold mb-3">Tezkor Harakatlar</h4>
                     <div class="space-y-2">
@@ -609,19 +404,16 @@
         </div>
     </div>
 </div>
-
 <!-- Notification -->
 <div id="notification" class="fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
     <span id="notificationText"></span>
 </div>
-
 <script>
     let currentStep = 1;
     let selectedGameType = '';
     let selectedCategory = '';
     let selectedDifficulty = '';
     let gameData = {};
-
     // Step navigation
     function nextStep() {
         if (validateCurrentStep()) {
@@ -631,37 +423,22 @@
             }
         }
     }
-
     function previousStep() {
         if (currentStep > 1) {
             currentStep--;
             updateStepDisplay();
         }
     }
-
     function updateStepDisplay() {
-        // Hide all step contents
-        document.querySelectorAll('.step-content').forEach(content => {
-            content.classList.add('hidden');
-        });
-
-        // Show current step content
+        document.querySelectorAll('.step-content').forEach(content => { content.classList.add('hidden'); });
         const stepContents = ['gameTypeStep', 'basicInfoStep', 'gameContentStep', 'rewardsStep', 'reviewStep'];
         document.getElementById(stepContents[currentStep - 1]).classList.remove('hidden');
-
-        // Update step indicators
         for (let i = 1; i <= 5; i++) {
             const step = document.getElementById(`step${i}`);
-            if (i < currentStep) {
-                step.className = 'step completed';
-            } else if (i === currentStep) {
-                step.className = 'step active';
-            } else {
-                step.className = 'step inactive';
-            }
+            if (i < currentStep) step.className = 'step completed';
+            else if (i === currentStep) step.className = 'step active';
+            else step.className = 'step inactive';
         }
-
-        // Update step text
         const stepTexts = [
             '1-qadam: O\'yin turini tanlang',
             '2-qadam: Asosiy ma\'lumotlarni kiriting',
@@ -670,18 +447,10 @@
             '5-qadam: Ko\'rib chiqish va nashr qilish'
         ];
         document.getElementById('stepText').textContent = stepTexts[currentStep - 1];
-
-        // Update navigation buttons
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const publishBtn = document.getElementById('publishBtn');
-
-        if (currentStep === 1) {
-            prevBtn.classList.add('hidden');
-        } else {
-            prevBtn.classList.remove('hidden');
-        }
-
+        if (currentStep === 1) prevBtn.classList.add('hidden'); else prevBtn.classList.remove('hidden');
         if (currentStep === 5) {
             nextBtn.classList.add('hidden');
             publishBtn.classList.remove('hidden');
@@ -690,10 +459,8 @@
             nextBtn.classList.remove('hidden');
             publishBtn.classList.add('hidden');
         }
-
         updatePreview();
     }
-
     function validateCurrentStep() {
         switch (currentStep) {
             case 1:
@@ -707,7 +474,6 @@
                 const gameDescription = document.getElementById('gameDescription').value;
                 const minAge = document.getElementById('minAge').value;
                 const maxAge = document.getElementById('maxAge').value;
-
                 if (!gameName || !gameDescription || !minAge || !maxAge || !selectedDifficulty) {
                     showNotification('Barcha majburiy maydonlarni to\'ldiring', 'warning');
                     return false;
@@ -730,83 +496,48 @@
         }
         return true;
     }
-
     // Game type and category selection
     function selectGameType(type) {
         selectedGameType = type;
-
-        // Update UI
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.classList.remove('selected');
-        });
+        document.querySelectorAll('.category-card').forEach(card => { card.classList.remove('selected'); });
         event.target.closest('.category-card').classList.add('selected');
-
-        // Show category selection
         document.getElementById('categorySelection').classList.remove('hidden');
-
         if (type === 'smart-task') {
             document.getElementById('smartTaskCategories').classList.remove('hidden');
             document.getElementById('interactiveGameCategories').classList.add('hidden');
+            document.getElementById('smartTaskContent').style.display = 'block';
         } else {
             document.getElementById('smartTaskCategories').classList.add('hidden');
             document.getElementById('interactiveGameCategories').classList.remove('hidden');
+            document.getElementById('smartTaskContent').style.display = 'none';
         }
-
         updatePreview();
     }
-
     function selectCategory(category) {
         selectedCategory = category;
-
-        // Update UI
-        document.querySelectorAll('#categorySelection .category-card').forEach(card => {
-            card.classList.remove('selected');
-        });
+        document.querySelectorAll('#categorySelection .category-card').forEach(card => { card.classList.remove('selected'); });
         event.target.closest('.category-card').classList.add('selected');
-
         updatePreview();
     }
-
     function selectDifficulty(difficulty) {
         selectedDifficulty = difficulty;
-
-        // Update UI
-        document.querySelectorAll('.difficulty-badge').forEach(badge => {
-            badge.style.opacity = '0.5';
-        });
+        document.querySelectorAll('.difficulty-badge').forEach(badge => { badge.style.opacity = '0.5'; });
         event.target.style.opacity = '1';
-
         updatePreview();
     }
-
     // Preview functions
     function updatePreview() {
         const preview = document.getElementById('gamePreview');
         const gameName = document.getElementById('gameName')?.value || 'O\'yin Nomi';
         const gameDescription = document.getElementById('gameDescription')?.value || 'O\'yin tavsifi';
-
         if (selectedGameType && selectedCategory) {
             const categoryNames = {
-                'math': 'Matematik',
-                'logic': 'Mantiq',
-                'memory': 'Xotira',
-                'language': 'Til',
-                'science': 'Fan',
-                'geography': 'Geografiya',
-                'drawing': 'Rasm Chizish',
-                'music': 'Musiqa',
-                'puzzle': 'Puzzle',
-                'adventure': 'Sarguzasht',
-                'simulation': 'Simulyatsiya',
-                'strategy': 'Strategiya'
+                'math': 'Matematik', 'logic': 'Mantiq', 'memory': 'Xotira', 'language': 'Til', 'science': 'Fan', 'geography': 'Geografiya',
+                'drawing': 'Rasm Chizish', 'music': 'Musiqa', 'puzzle': 'Puzzle', 'adventure': 'Sarguzasht', 'simulation': 'Simulyatsiya', 'strategy': 'Strategiya'
             };
-
             const difficultyNames = {
-                'easy': 'Oson',
-                'medium': 'O\'rta',
-                'hard': 'Qiyin'
+                'easy': 'Oson', 'medium': 'O\'rta', 'hard': 'Qiyin'
             };
-
             preview.innerHTML = `
             <div class="text-left">
                 <div class="flex items-center mb-3">
@@ -827,15 +558,10 @@
         `;
         }
     }
-
     function previewGame() {
-        // Collect all form data
         collectGameData();
-
-        // Open preview modal or new window
         showNotification('O\'yin ko\'rib chiqish oynasi ochilmoqda...', 'success');
     }
-
     // Data collection and saving
     function collectGameData() {
         gameData = {
@@ -862,7 +588,6 @@
                 testMode: document.getElementById('testMode')?.checked
             }
         };
-
         if (selectedGameType === 'smart-task') {
             gameData.smartTask = {
                 questionCount: document.getElementById('questionCount')?.value,
@@ -870,21 +595,16 @@
                 passingScore: document.getElementById('passingScore')?.value
             };
         }
-
         return gameData;
     }
-
     function saveAsDraft() {
         collectGameData();
-        // Save to localStorage or send to server
         localStorage.setItem('gameDraft', JSON.stringify(gameData));
         showNotification('Qoralama saqlandi', 'success');
     }
-
     function loadTemplate() {
         showNotification('Shablon yuklash funksiyasi ishlab chiqilmoqda...', 'info');
     }
-
     function exportGame() {
         collectGameData();
         const dataStr = JSON.stringify(gameData, null, 2);
@@ -896,57 +616,43 @@
         link.click();
         showNotification('O\'yin eksport qilindi', 'success');
     }
-
     function publishGame() {
-        if (validateCurrentStep()) {
-            collectGameData();
-            showNotification('O\'yin nashr qilinmoqda...', 'info');
-            fetch('http://localhost:9000/api/games', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + window.apiToken,
-                },
-                body: JSON.stringify(gameData)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    showNotification('O\'yin muvaffaqiyatli nashr qilindi!', 'success');
-                    setTimeout(() => {
-                        window.location.href = '/admin';
-                    }, 2000);
-                })
-                .catch(error => {
-                    showNotification('Xatolik yuz berdi: ' + error.message, 'error');
-                });
-        }
-    }
+        collectGameData();
+        console.log(gameData)
+        fetch('http://localhost:9000/api/games', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + window.apiToken,
+            },
+            body: JSON.stringify(gameData),
 
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text); });
+                }
+                return response.json();
+            })
+            .then(data => {
+                showNotification("O'yin muvaffaqiyatli nashr qilindi!", "success");
+                // Optional: formani tozalash yoki boshqa amallar
+            })
+            .catch(error => {
+                showNotification("Xatolik yuz berdi: " + error.message, "error");
+            });
+    }
     function generateSummary() {
         const summary = document.getElementById('gameSummary');
         collectGameData();
-
         const categoryNames = {
-            'math': 'Matematik',
-            'logic': 'Mantiq',
-            'memory': 'Xotira',
-            'language': 'Til',
-            'science': 'Fan',
-            'geography': 'Geografiya',
-            'drawing': 'Rasm Chizish',
-            'music': 'Musiqa',
-            'puzzle': 'Puzzle',
-            'adventure': 'Sarguzasht',
-            'simulation': 'Simulyatsiya',
-            'strategy': 'Strategiya'
+            'math': 'Matematik', 'logic': 'Mantiq', 'memory': 'Xotira', 'language': 'Til', 'science': 'Fan', 'geography': 'Geografiya',
+            'drawing': 'Rasm Chizish', 'music': 'Musiqa', 'puzzle': 'Puzzle', 'adventure': 'Sarguzasht', 'simulation': 'Simulyatsiya', 'strategy': 'Strategiya'
         };
-
         const difficultyNames = {
-            'easy': 'Oson',
-            'medium': 'O\'rta',
-            'hard': 'Qiyin'
+            'easy': 'Oson', 'medium': 'O\'rta', 'hard': 'Qiyin'
         };
-
         summary.innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="space-y-2">
@@ -990,51 +696,34 @@
         </div>
     `;
     }
-
     // Notification function
     function showNotification(message, type = 'success') {
         const notification = document.getElementById('notification');
         const notificationText = document.getElementById('notificationText');
-
         notificationText.textContent = message;
-
-        // Set color based on type
         const colors = {
             success: 'bg-green-500',
             warning: 'bg-yellow-500',
             error: 'bg-red-500',
             info: 'bg-blue-500'
         };
-
         notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 z-50 ${colors[type] || colors.success} text-white`;
-
-        // Show notification
         notification.classList.remove('translate-x-full');
-
-        // Hide after 3 seconds
-        setTimeout(() => {
-            notification.classList.add('translate-x-full');
-        }, 3000);
+        setTimeout(() => { notification.classList.add('translate-x-full'); }, 3000);
     }
-
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
         updateStepDisplay();
-
         // Load draft if exists
         const draft = localStorage.getItem('gameDraft');
         if (draft) {
             try {
                 const draftData = JSON.parse(draft);
-                // Populate form with draft data
+                // You can fill the form fields with draftData here if needed
                 showNotification('Qoralama yuklandi', 'info');
-            } catch (e) {
-                console.error('Error loading draft:', e);
-            }
+            } catch (e) { console.error('Error loading draft:', e); }
         }
     });
-
-    // Show smart task content when smart task is selected
     document.addEventListener('change', function(e) {
         if (e.target.id === 'gameType' && e.target.value === 'smart-task') {
             document.getElementById('smartTaskContent').style.display = 'block';
@@ -1043,6 +732,5 @@
         }
     });
 </script>
-
 </body>
 </html>
